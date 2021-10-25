@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageImporter", "ImageImporter\ImageImporter.csproj", "{22AFC71E-AAB1-43C8-98D6-E04D54017CCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22AFC71E-AAB1-43C8-98D6-E04D54017CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AFC71E-AAB1-43C8-98D6-E04D54017CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AFC71E-AAB1-43C8-98D6-E04D54017CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AFC71E-AAB1-43C8-98D6-E04D54017CCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D83F8D1-D5B1-4D4B-A1ED-60325E3D19A5}
+	EndGlobalSection
+EndGlobal
