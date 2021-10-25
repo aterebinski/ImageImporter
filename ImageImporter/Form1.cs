@@ -17,5 +17,13 @@ namespace ImageImporter
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog sourceFolderBrowserDialog = new FolderBrowserDialog();
+            if (sourceFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+
+                textBoxSourceFolder.Text = sourceFolderBrowserDialog.SelectedPath;
+
+        }
     }
 }
