@@ -24,6 +24,9 @@ namespace ImageImporter
 
                 textBoxSourceFolder.Text = sourceFolderBrowserDialog.SelectedPath;
 
+            System.IO.File.GetCreationTime
         }
+
+
     }
 }
