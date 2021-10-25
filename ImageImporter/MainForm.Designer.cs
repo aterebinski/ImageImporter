@@ -157,10 +157,8 @@ namespace ImageImporter
             this.SubfoldersNamingConvention.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SubfoldersNamingConvention.FormattingEnabled = true;
             this.SubfoldersNamingConvention.Items.AddRange(new object[] {
-            "Year\\Month(name)",
-            "Year\\Month(number)",
-            "Year-Month(name)",
-            "Year-Month(number)"});
+            "Year-Month(number)",
+            "Year\\Month(number)"});
             this.SubfoldersNamingConvention.Location = new System.Drawing.Point(141, 217);
             this.SubfoldersNamingConvention.Name = "SubfoldersNamingConvention";
             this.SubfoldersNamingConvention.Size = new System.Drawing.Size(223, 28);
