@@ -12,8 +12,8 @@ namespace ImageImporter
 {
     public partial class Form1 : Form
     {
-        string sourceFolder = null;
-        string destinationFolder = null;
+        string sourceFolderPath = null;
+        string destinationFolderPath = null;
 
 
 
@@ -22,17 +22,30 @@ namespace ImageImporter
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSourceFolder_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog sourceFolderBrowserDialog = new FolderBrowserDialog();
             if (sourceFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                sourceFolder = sourceFolderBrowserDialog.SelectedPath;
-                textBoxSourceFolder.Text = sourceFolder;
+                sourceFolderPath = sourceFolderBrowserDialog.SelectedPath;
+                textBoxSourceFolder.Text = sourceFolderPath;
             }
                 
         }
 
+        private void buttonDestinatonFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog destinationFolderBrowserDialog = new FolderBrowserDialog();
+            if(destinationFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                destinationFolderPath = destinationFolderBrowserDialog.SelectedPath;
+                textBoxDestinationFolder.Text = destinationFolderPath;
+            }
+        }
 
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace ImageImporter
             this.buttonSourceFolder.TabIndex = 0;
             this.buttonSourceFolder.Text = "Browse";
             this.buttonSourceFolder.UseVisualStyleBackColor = true;
-            this.buttonSourceFolder.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSourceFolder.Click += new System.EventHandler(this.buttonSourceFolder_Click);
             // 
             // textBoxSourceFolder
             // 
@@ -104,6 +104,7 @@ namespace ImageImporter
             this.buttonDestinatonFolder.TabIndex = 6;
             this.buttonDestinatonFolder.Text = "Browse";
             this.buttonDestinatonFolder.UseVisualStyleBackColor = true;
+            this.buttonDestinatonFolder.Click += new System.EventHandler(this.buttonDestinatonFolder_Click);
             // 
             // label2
             // 
@@ -122,6 +123,7 @@ namespace ImageImporter
             this.buttonImport.TabIndex = 8;
             this.buttonImport.Text = "Import";
             this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // progressBarImporting
             // 
