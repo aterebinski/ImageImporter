@@ -41,11 +41,13 @@ namespace ImageImporter
             this.progressBarImporting = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.labelFileCounter = new System.Windows.Forms.Label();
+            this.SubfoldersNamingConvention = new System.Windows.Forms.ComboBox();
+            this.labelNamingConventions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonSourceFolder
             // 
-            this.buttonSourceFolder.Location = new System.Drawing.Point(584, 136);
+            this.buttonSourceFolder.Location = new System.Drawing.Point(584, 74);
             this.buttonSourceFolder.Name = "buttonSourceFolder";
             this.buttonSourceFolder.Size = new System.Drawing.Size(111, 29);
             this.buttonSourceFolder.TabIndex = 0;
@@ -55,7 +57,7 @@ namespace ImageImporter
             // 
             // textBoxSourceFolder
             // 
-            this.textBoxSourceFolder.Location = new System.Drawing.Point(141, 136);
+            this.textBoxSourceFolder.Location = new System.Drawing.Point(141, 74);
             this.textBoxSourceFolder.Name = "textBoxSourceFolder";
             this.textBoxSourceFolder.Size = new System.Drawing.Size(421, 27);
             this.textBoxSourceFolder.TabIndex = 1;
@@ -63,7 +65,7 @@ namespace ImageImporter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(137, 113);
+            this.label1.Location = new System.Drawing.Point(137, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 2;
@@ -72,17 +74,17 @@ namespace ImageImporter
             // checkBoxSubfolders
             // 
             this.checkBoxSubfolders.AutoSize = true;
-            this.checkBoxSubfolders.Location = new System.Drawing.Point(141, 169);
+            this.checkBoxSubfolders.Location = new System.Drawing.Point(141, 107);
             this.checkBoxSubfolders.Name = "checkBoxSubfolders";
-            this.checkBoxSubfolders.Size = new System.Drawing.Size(102, 24);
+            this.checkBoxSubfolders.Size = new System.Drawing.Size(190, 24);
             this.checkBoxSubfolders.TabIndex = 3;
-            this.checkBoxSubfolders.Text = "Subfolders";
+            this.checkBoxSubfolders.Text = "Check source subfolders";
             this.checkBoxSubfolders.UseVisualStyleBackColor = true;
             // 
             // checkBoxDeleteImages
             // 
             this.checkBoxDeleteImages.AutoSize = true;
-            this.checkBoxDeleteImages.Location = new System.Drawing.Point(141, 199);
+            this.checkBoxDeleteImages.Location = new System.Drawing.Point(141, 137);
             this.checkBoxDeleteImages.Name = "checkBoxDeleteImages";
             this.checkBoxDeleteImages.Size = new System.Drawing.Size(286, 24);
             this.checkBoxDeleteImages.TabIndex = 4;
@@ -91,14 +93,14 @@ namespace ImageImporter
             // 
             // textBoxDestinationFolder
             // 
-            this.textBoxDestinationFolder.Location = new System.Drawing.Point(141, 265);
+            this.textBoxDestinationFolder.Location = new System.Drawing.Point(141, 283);
             this.textBoxDestinationFolder.Name = "textBoxDestinationFolder";
             this.textBoxDestinationFolder.Size = new System.Drawing.Size(421, 27);
             this.textBoxDestinationFolder.TabIndex = 5;
             // 
             // buttonDestinatonFolder
             // 
-            this.buttonDestinatonFolder.Location = new System.Drawing.Point(584, 265);
+            this.buttonDestinatonFolder.Location = new System.Drawing.Point(584, 283);
             this.buttonDestinatonFolder.Name = "buttonDestinatonFolder";
             this.buttonDestinatonFolder.Size = new System.Drawing.Size(111, 29);
             this.buttonDestinatonFolder.TabIndex = 6;
@@ -109,7 +111,7 @@ namespace ImageImporter
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 242);
+            this.label2.Location = new System.Drawing.Point(141, 260);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 7;
@@ -150,11 +152,36 @@ namespace ImageImporter
             this.labelFileCounter.TabIndex = 11;
             this.labelFileCounter.Text = "0";
             // 
+            // SubfoldersNamingConvention
+            // 
+            this.SubfoldersNamingConvention.FormattingEnabled = true;
+            this.SubfoldersNamingConvention.Items.AddRange(new object[] {
+            "Rok\\Miesiąc(nazwa)",
+            "Rok\\Miesiąc(numer)",
+            "Rok-Miesiąc(nazwa)",
+            "Rok-Miesiąc(numer)"});
+            this.SubfoldersNamingConvention.Location = new System.Drawing.Point(141, 217);
+            this.SubfoldersNamingConvention.Name = "SubfoldersNamingConvention";
+            this.SubfoldersNamingConvention.Size = new System.Drawing.Size(151, 28);
+            this.SubfoldersNamingConvention.TabIndex = 12;
+            this.SubfoldersNamingConvention.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // labelNamingConventions
+            // 
+            this.labelNamingConventions.AutoSize = true;
+            this.labelNamingConventions.Location = new System.Drawing.Point(141, 194);
+            this.labelNamingConventions.Name = "labelNamingConventions";
+            this.labelNamingConventions.Size = new System.Drawing.Size(109, 20);
+            this.labelNamingConventions.TabIndex = 13;
+            this.labelNamingConventions.Text = "Use subfolders:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelNamingConventions);
+            this.Controls.Add(this.SubfoldersNamingConvention);
             this.Controls.Add(this.labelFileCounter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBarImporting);
@@ -187,6 +214,8 @@ namespace ImageImporter
         private System.Windows.Forms.ProgressBar progressBarImporting;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelFileCounter;
+        private System.Windows.Forms.ComboBox SubfoldersNamingConvention;
+        private System.Windows.Forms.Label labelNamingConventions;
     }
 }
 

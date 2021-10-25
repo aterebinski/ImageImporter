@@ -49,5 +49,11 @@ namespace ImageImporter
             ConfirmationForm confirmationForm = new ConfirmationForm();
             confirmationForm.Show();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
