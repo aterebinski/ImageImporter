@@ -12,6 +12,11 @@ namespace ImageImporter
 {
     public partial class Form1 : Form
     {
+        string sourceFolder = null;
+        string destinationFolder = null;
+
+
+
         public Form1()
         {
             InitializeComponent();
@@ -21,10 +26,11 @@ namespace ImageImporter
         {
             FolderBrowserDialog sourceFolderBrowserDialog = new FolderBrowserDialog();
             if (sourceFolderBrowserDialog.ShowDialog() == DialogResult.OK)
-
-                textBoxSourceFolder.Text = sourceFolderBrowserDialog.SelectedPath;
-
-            System.IO.File.GetCreationTime
+            {
+                sourceFolder = sourceFolderBrowserDialog.SelectedPath;
+                textBoxSourceFolder.Text = sourceFolder;
+            }
+                
         }
 
 

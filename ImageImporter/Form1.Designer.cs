@@ -29,29 +29,29 @@ namespace ImageImporter
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSourceFolder = new System.Windows.Forms.Button();
             this.textBoxSourceFolder = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.checkBoxSubfolders = new System.Windows.Forms.CheckBox();
+            this.checkBoxDeleteImages = new System.Windows.Forms.CheckBox();
+            this.textBoxDestinationFolder = new System.Windows.Forms.TextBox();
+            this.buttonDestinatonFolder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.buttonImport = new System.Windows.Forms.Button();
+            this.progressBarImporting = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelFileCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonSourceFolder
             // 
-            this.button1.Location = new System.Drawing.Point(584, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSourceFolder.Location = new System.Drawing.Point(584, 136);
+            this.buttonSourceFolder.Name = "buttonSourceFolder";
+            this.buttonSourceFolder.Size = new System.Drawing.Size(111, 29);
+            this.buttonSourceFolder.TabIndex = 0;
+            this.buttonSourceFolder.Text = "Browse";
+            this.buttonSourceFolder.UseVisualStyleBackColor = true;
+            this.buttonSourceFolder.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxSourceFolder
             // 
@@ -69,41 +69,41 @@ namespace ImageImporter
             this.label1.TabIndex = 2;
             this.label1.Text = "Source:";
             // 
-            // checkBox1
+            // checkBoxSubfolders
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(141, 169);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 24);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Subfolders";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxSubfolders.AutoSize = true;
+            this.checkBoxSubfolders.Location = new System.Drawing.Point(141, 169);
+            this.checkBoxSubfolders.Name = "checkBoxSubfolders";
+            this.checkBoxSubfolders.Size = new System.Drawing.Size(102, 24);
+            this.checkBoxSubfolders.TabIndex = 3;
+            this.checkBoxSubfolders.Text = "Subfolders";
+            this.checkBoxSubfolders.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxDeleteImages
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(141, 199);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(286, 24);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Delete from source folder after import";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxDeleteImages.AutoSize = true;
+            this.checkBoxDeleteImages.Location = new System.Drawing.Point(141, 199);
+            this.checkBoxDeleteImages.Name = "checkBoxDeleteImages";
+            this.checkBoxDeleteImages.Size = new System.Drawing.Size(286, 24);
+            this.checkBoxDeleteImages.TabIndex = 4;
+            this.checkBoxDeleteImages.Text = "Delete from source folder after import";
+            this.checkBoxDeleteImages.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxDestinationFolder
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 265);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(421, 27);
-            this.textBox1.TabIndex = 5;
+            this.textBoxDestinationFolder.Location = new System.Drawing.Point(141, 265);
+            this.textBoxDestinationFolder.Name = "textBoxDestinationFolder";
+            this.textBoxDestinationFolder.Size = new System.Drawing.Size(421, 27);
+            this.textBoxDestinationFolder.TabIndex = 5;
             // 
-            // button2
+            // buttonDestinatonFolder
             // 
-            this.button2.Location = new System.Drawing.Point(584, 265);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 29);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDestinatonFolder.Location = new System.Drawing.Point(584, 265);
+            this.buttonDestinatonFolder.Name = "buttonDestinatonFolder";
+            this.buttonDestinatonFolder.Size = new System.Drawing.Size(111, 29);
+            this.buttonDestinatonFolder.TabIndex = 6;
+            this.buttonDestinatonFolder.Text = "Browse";
+            this.buttonDestinatonFolder.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -114,21 +114,21 @@ namespace ImageImporter
             this.label2.TabIndex = 7;
             this.label2.Text = "Destination:";
             // 
-            // button3
+            // buttonImport
             // 
-            this.button3.Location = new System.Drawing.Point(137, 329);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Import";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonImport.Location = new System.Drawing.Point(137, 329);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(94, 29);
+            this.buttonImport.TabIndex = 8;
+            this.buttonImport.Text = "Import";
+            this.buttonImport.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // progressBarImporting
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 409);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(776, 29);
-            this.progressBar1.TabIndex = 9;
+            this.progressBarImporting.Location = new System.Drawing.Point(12, 409);
+            this.progressBarImporting.Name = "progressBarImporting";
+            this.progressBarImporting.Size = new System.Drawing.Size(776, 29);
+            this.progressBarImporting.TabIndex = 9;
             // 
             // label3
             // 
@@ -139,32 +139,32 @@ namespace ImageImporter
             this.label3.TabIndex = 10;
             this.label3.Text = "Files:";
             // 
-            // label4
+            // labelFileCounter
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 377);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "0";
+            this.labelFileCounter.AutoSize = true;
+            this.labelFileCounter.Location = new System.Drawing.Point(433, 377);
+            this.labelFileCounter.Name = "labelFileCounter";
+            this.labelFileCounter.Size = new System.Drawing.Size(17, 20);
+            this.labelFileCounter.TabIndex = 11;
+            this.labelFileCounter.Text = "0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelFileCounter);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.progressBarImporting);
+            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.buttonDestinatonFolder);
+            this.Controls.Add(this.textBoxDestinationFolder);
+            this.Controls.Add(this.checkBoxDeleteImages);
+            this.Controls.Add(this.checkBoxSubfolders);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSourceFolder);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSourceFolder);
             this.Name = "Form1";
             this.Text = "Image Importer";
             this.ResumeLayout(false);
@@ -173,18 +173,18 @@ namespace ImageImporter
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSourceFolder;
         private System.Windows.Forms.TextBox textBoxSourceFolder;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBoxSubfolders;
+        private System.Windows.Forms.CheckBox checkBoxDeleteImages;
+        private System.Windows.Forms.TextBox textBoxDestinationFolder;
+        private System.Windows.Forms.Button buttonDestinatonFolder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button buttonImport;
+        private System.Windows.Forms.ProgressBar progressBarImporting;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelFileCounter;
     }
 }
 
