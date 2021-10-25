@@ -1,7 +1,7 @@
 ﻿
 namespace ImageImporter
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -117,7 +117,7 @@ namespace ImageImporter
             // 
             // buttonImport
             // 
-            this.buttonImport.Location = new System.Drawing.Point(137, 329);
+            this.buttonImport.Location = new System.Drawing.Point(141, 327);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(94, 29);
             this.buttonImport.TabIndex = 8;
@@ -150,7 +150,7 @@ namespace ImageImporter
             this.labelFileCounter.TabIndex = 11;
             this.labelFileCounter.Text = "0";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,7 +167,7 @@ namespace ImageImporter
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSourceFolder);
             this.Controls.Add(this.buttonSourceFolder);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Image Importer";
             this.ResumeLayout(false);
             this.PerformLayout();

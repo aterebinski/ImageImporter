@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace ImageImporter
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        string sourceFolderPath = null;
-        string destinationFolderPath = null;
+        public static string SourceFolderPath { get; set; }
+        public static string DestinationFolderPath { get; set; }
 
 
 
-        public Form1()
+
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -27,8 +28,8 @@ namespace ImageImporter
             FolderBrowserDialog sourceFolderBrowserDialog = new FolderBrowserDialog();
             if (sourceFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                sourceFolderPath = sourceFolderBrowserDialog.SelectedPath;
-                textBoxSourceFolder.Text = sourceFolderPath;
+                SourceFolderPath = sourceFolderBrowserDialog.SelectedPath;
+                textBoxSourceFolder.Text = SourceFolderPath;
             }
                 
         }
@@ -38,14 +39,15 @@ namespace ImageImporter
             FolderBrowserDialog destinationFolderBrowserDialog = new FolderBrowserDialog();
             if(destinationFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                destinationFolderPath = destinationFolderBrowserDialog.SelectedPath;
-                textBoxDestinationFolder.Text = destinationFolderPath;
+                DestinationFolderPath = destinationFolderBrowserDialog.SelectedPath;
+                textBoxDestinationFolder.Text = DestinationFolderPath;
             }
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            
+            ConfirmationForm confirmationForm = new ConfirmationForm();
+            confirmationForm.Show();
         }
     }
 }

@@ -83,6 +83,7 @@ namespace ImageImporter
             this.Controls.Add(this.ConfirmationFormInfoText);
             this.Name = "ConfirmationForm";
             this.Text = "Confirmation";
+            this.Load += new System.EventHandler(this.ConfirmationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
