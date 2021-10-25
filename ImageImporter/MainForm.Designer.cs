@@ -154,15 +154,16 @@ namespace ImageImporter
             // 
             // SubfoldersNamingConvention
             // 
+            this.SubfoldersNamingConvention.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SubfoldersNamingConvention.FormattingEnabled = true;
             this.SubfoldersNamingConvention.Items.AddRange(new object[] {
-            "Rok\\Miesiąc(nazwa)",
-            "Rok\\Miesiąc(numer)",
-            "Rok-Miesiąc(nazwa)",
-            "Rok-Miesiąc(numer)"});
+            "Year\\Month(name)",
+            "Year\\Month(number)",
+            "Year-Month(name)",
+            "Year-Month(number)"});
             this.SubfoldersNamingConvention.Location = new System.Drawing.Point(141, 217);
             this.SubfoldersNamingConvention.Name = "SubfoldersNamingConvention";
-            this.SubfoldersNamingConvention.Size = new System.Drawing.Size(151, 28);
+            this.SubfoldersNamingConvention.Size = new System.Drawing.Size(223, 28);
             this.SubfoldersNamingConvention.TabIndex = 12;
             this.SubfoldersNamingConvention.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 

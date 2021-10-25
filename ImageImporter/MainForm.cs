@@ -14,13 +14,16 @@ namespace ImageImporter
     {
         public static string SourceFolderPath { get; set; }
         public static string DestinationFolderPath { get; set; }
+        public static int SelectedSubfolderNamingConvention { get; set; }
 
 
 
 
         public MainForm()
         {
+            
             InitializeComponent();
+            SubfoldersNamingConvention.SelectedIndex = 0;
         }
 
         private void buttonSourceFolder_Click(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace ImageImporter
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            SelectedSubfolderNamingConvention = SubfoldersNamingConvention.SelectedIndex;
         }
 
     }
