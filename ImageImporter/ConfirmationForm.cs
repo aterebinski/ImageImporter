@@ -13,8 +13,7 @@ namespace ImageImporter
 {
     public partial class ConfirmationForm : Form
     {
-        string[] importedFiles;
-        List<string> importedFilesList = new List<string>();
+        
         public static string SourceFolderPath { get; set; }
         public static string DestinationFolderPath { get; set; }
         public static int SelectedSubfolderNamingConvention { get; set; }
@@ -52,29 +51,7 @@ namespace ImageImporter
             }
             else
             {
-                
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpg");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpeg");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.mp4");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.png");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.nef");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.avi");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.bmp");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.3gp");
-                importedFilesList.AddRange(importedFiles);
-                importedFiles = importedFilesList.ToArray();
-
-                importedFilesAmount = importedFiles.Length;
-
-                MainForm.importedFiles = importedFiles;
-
+                importedFilesAmount = MainForm.importedFiles.Length;
                 ConfirmationFormInfoText.Text = $"There are {importedFilesAmount} images to import. Do you really want to import files to destination folder?";
             }
         }

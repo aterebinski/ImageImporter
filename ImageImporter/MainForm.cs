@@ -18,8 +18,7 @@ namespace ImageImporter
         public static int SelectedSubfolderNamingConvention { get; set; }
         public static bool Overwrite { get; set; }
         public static string[] importedFiles { get; set; }
-
-
+        private List<string> importedFilesList;
 
 
         public MainForm()
@@ -53,6 +52,26 @@ namespace ImageImporter
         private void buttonImport_Click(object sender, EventArgs e)
         {
             Overwrite = checkBoxOverwrite.Checked;
+
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpg");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpeg");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.mp4");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.png");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.nef");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.avi");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.bmp");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.3gp");
+            importedFilesList.AddRange(importedFiles);
+            importedFiles = importedFilesList.ToArray();
+
+
             ConfirmationForm confirmationForm = new ConfirmationForm();
             confirmationForm.Show();
         }
