@@ -210,6 +210,7 @@ namespace ImageImporter
             this.Controls.Add(this.buttonSourceFolder);
             this.Name = "MainForm";
             this.Text = "Image Importer";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

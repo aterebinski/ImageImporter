@@ -75,7 +75,6 @@ namespace ImageImporter
         {
             //this.Close();
             this.Hide();
-            MainForm.importFiles();
             //this.Hide();
         }
 

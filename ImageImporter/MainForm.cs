@@ -18,7 +18,7 @@ namespace ImageImporter
         public static int SelectedSubfolderNamingConvention { get; set; }
         public static bool Overwrite { get; set; }
         public static string[] importedFiles { get; set; }
-        private List<string> importedFilesList;
+        private static List<string> importedFilesList = new();
 
 
         public MainForm()
@@ -26,6 +26,7 @@ namespace ImageImporter
             
             InitializeComponent();
             SubfoldersNamingConvention.SelectedIndex = 0;
+            
         }
 
         private void buttonSourceFolder_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace ImageImporter
         private void buttonImport_Click(object sender, EventArgs e)
         {
             Overwrite = checkBoxOverwrite.Checked;
-
+            importedFilesList.Clear();
             importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpg");
             importedFilesList.AddRange(importedFiles);
             importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpeg");
@@ -81,7 +82,7 @@ namespace ImageImporter
             SelectedSubfolderNamingConvention = SubfoldersNamingConvention.SelectedIndex;
         }
 
-        public static int importFiles()
+        public int importFiles()
         {
             DateTime fileCreationTime;
             string fileName;
@@ -130,6 +131,7 @@ namespace ImageImporter
               
 
                 i++;
+                LabelFileCounter.Text = $"{i}/{importedFiles.Length}";
             }
 
 
@@ -138,5 +140,12 @@ namespace ImageImporter
             return 1;
         }
 
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (importedFiles.Length > 0)
+            {
+                importFiles();
+            }
+        }
     }
 }
