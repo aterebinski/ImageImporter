@@ -18,10 +18,12 @@ namespace ImageImporter
         public static string SourceFolderPath { get; set; }
         public static string DestinationFolderPath { get; set; }
         public static int SelectedSubfolderNamingConvention { get; set; }
+        public int importedFilesAmount { get; set; }
 
         public ConfirmationForm()
         {
             InitializeComponent();
+            buttonOK.Visible = false;
         }
 
         private void ConfirmationForm_Load(object sender, EventArgs e)
@@ -35,91 +37,70 @@ namespace ImageImporter
                 this.Text = "Alert";
                 ConfirmationFormTitle.Text = "Alert!";
                 ConfirmationFormInfoText.Text = "You haven't choosen source folder!";
-            }else if (DestinationFolderPath == null)
+                buttonNo.Visible = false;
+                buttonYes.Visible = false;
+                buttonOK.Visible = true;
+            }
+            else if (DestinationFolderPath == null)
             {
                 this.Text = "Alert";
                 ConfirmationFormTitle.Text = "Alert!";
                 ConfirmationFormInfoText.Text = "You haven't choosen destination folder!";
-            }else
+                buttonNo.Visible = false;
+                buttonYes.Visible = false;
+                buttonOK.Visible = true;
+            }
+            else
             {
-                importFiles();
                 
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpg");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpeg");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.mp4");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.png");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.nef");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.avi");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.bmp");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.3gp");
+                importedFilesList.AddRange(importedFiles);
+                importedFiles = importedFilesList.ToArray();
+
+                importedFilesAmount = importedFiles.Length;
+
+                MainForm.importedFiles = importedFiles;
+
+                ConfirmationFormInfoText.Text = $"There are {importedFilesAmount} images to import. Do you really want to import files to destination folder?";
             }
         }
 
-        private int importFiles()
+        
+
+        private void buttonNo_Click(object sender, EventArgs e)
         {
-            DateTime fileCreationTime;
-            string fileName;
-            string year, month;
-            string destinationFolder;
-
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpg");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.jpeg");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.mp4");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.png");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.nef");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.avi");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.bmp");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = System.IO.Directory.GetFiles(SourceFolderPath, "*.3gp");
-            importedFilesList.AddRange(importedFiles);
-            importedFiles = importedFilesList.ToArray();
-
-
-            int i = 0;
-
-            this.Text = importedFiles.Length.ToString();
-
-            foreach (var sourceFile in importedFiles)
-            {
-                if (i < 100)
-                {
-                    fileCreationTime = System.IO.File.GetCreationTime(sourceFile);
-                    year = fileCreationTime.Year.ToString();
-                    month = (fileCreationTime.Month + 1).ToString();
-                    fileName = Path.GetFileName(sourceFile);
-
-                    ConfirmationFormInfoText.Text = $"Path: {sourceFile}, year: {year}, month: {month}, filename: {fileName}";
-
-                    switch (SelectedSubfolderNamingConvention)
-                    {
-                        case 0: // Year-Month(number)
-                            System.IO.Directory.CreateDirectory($"{DestinationFolderPath}\\{year}-{month}");
-                            destinationFolder = $"{DestinationFolderPath}\\{year}-{month}\\{fileName}";
-                            System.IO.File.Copy(sourceFile, destinationFolder);
-                            break;
-                        case 1: // Year\Month(number)
-                            System.IO.Directory.CreateDirectory($"{DestinationFolderPath}\\{year}\\{month}");
-                            destinationFolder = $"{DestinationFolderPath}\\{year}\\{month}\\{fileName}";
-                            System.IO.File.Copy(sourceFile, destinationFolder);
-                            break;
-                        
-                        default:
-                            System.IO.Directory.CreateDirectory($"{DestinationFolderPath}\\{year}-{month}");
-                            destinationFolder = $"{DestinationFolderPath}\\{year}-{month}\\{fileName}";
-                            System.IO.File.Copy(sourceFile, destinationFolder);
-                 
-                            break;
-                    }
-
-                    //ConfirmationFormInfoText.Text = $"Path: {sourceFile}, year: {year}, month: {month}, filename: {fileName}, destination folder: {destinationFolder} ";
-                }
-
-
-                i++;
-            }
-
-
-            
-
-            return 1;
+            this.Close();
         }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            buttonNo.Visible = true;
+            buttonYes.Visible = true;
+            buttonOK.Visible = false;
+            this.Close();
+        }
+
+        private void buttonYes_Click(object sender, EventArgs e)
+        {
+            //this.Close();
+            this.Hide();
+            MainForm.importFiles();
+            //this.Hide();
+        }
+
     }
 }

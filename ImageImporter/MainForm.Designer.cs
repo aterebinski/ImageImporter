@@ -40,9 +40,10 @@ namespace ImageImporter
             this.buttonImport = new System.Windows.Forms.Button();
             this.progressBarImporting = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelFileCounter = new System.Windows.Forms.Label();
+            this.LabelFileCounter = new System.Windows.Forms.Label();
             this.SubfoldersNamingConvention = new System.Windows.Forms.ComboBox();
             this.labelNamingConventions = new System.Windows.Forms.Label();
+            this.checkBoxOverwrite = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonSourceFolder
@@ -86,9 +87,9 @@ namespace ImageImporter
             this.checkBoxDeleteImages.AutoSize = true;
             this.checkBoxDeleteImages.Location = new System.Drawing.Point(141, 137);
             this.checkBoxDeleteImages.Name = "checkBoxDeleteImages";
-            this.checkBoxDeleteImages.Size = new System.Drawing.Size(286, 24);
+            this.checkBoxDeleteImages.Size = new System.Drawing.Size(338, 24);
             this.checkBoxDeleteImages.TabIndex = 4;
-            this.checkBoxDeleteImages.Text = "Delete from source folder after import";
+            this.checkBoxDeleteImages.Text = "Delete images from source folder after import";
             this.checkBoxDeleteImages.UseVisualStyleBackColor = true;
             // 
             // textBoxDestinationFolder
@@ -143,14 +144,14 @@ namespace ImageImporter
             this.label3.TabIndex = 10;
             this.label3.Text = "Files:";
             // 
-            // labelFileCounter
+            // LabelFileCounter
             // 
-            this.labelFileCounter.AutoSize = true;
-            this.labelFileCounter.Location = new System.Drawing.Point(433, 377);
-            this.labelFileCounter.Name = "labelFileCounter";
-            this.labelFileCounter.Size = new System.Drawing.Size(17, 20);
-            this.labelFileCounter.TabIndex = 11;
-            this.labelFileCounter.Text = "0";
+            this.LabelFileCounter.Location = new System.Drawing.Point(433, 377);
+            this.LabelFileCounter.Name = "LabelFileCounter";
+            this.LabelFileCounter.Size = new System.Drawing.Size(129, 20);
+            this.LabelFileCounter.TabIndex = 11;
+            this.LabelFileCounter.Text = "0/0";
+            this.LabelFileCounter.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // SubfoldersNamingConvention
             // 
@@ -174,14 +175,28 @@ namespace ImageImporter
             this.labelNamingConventions.TabIndex = 13;
             this.labelNamingConventions.Text = "Use subfolders:";
             // 
+            // checkBoxOverwrite
+            // 
+            this.checkBoxOverwrite.AutoSize = true;
+            this.checkBoxOverwrite.Checked = true;
+            this.checkBoxOverwrite.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxOverwrite.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBoxOverwrite.Location = new System.Drawing.Point(141, 168);
+            this.checkBoxOverwrite.Name = "checkBoxOverwrite";
+            this.checkBoxOverwrite.Size = new System.Drawing.Size(133, 24);
+            this.checkBoxOverwrite.TabIndex = 14;
+            this.checkBoxOverwrite.Text = "Overwrite files?";
+            this.checkBoxOverwrite.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxOverwrite);
             this.Controls.Add(this.labelNamingConventions);
             this.Controls.Add(this.SubfoldersNamingConvention);
-            this.Controls.Add(this.labelFileCounter);
+            this.Controls.Add(this.LabelFileCounter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBarImporting);
             this.Controls.Add(this.buttonImport);
@@ -212,9 +227,10 @@ namespace ImageImporter
         private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.ProgressBar progressBarImporting;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelFileCounter;
+        private System.Windows.Forms.Label LabelFileCounter;
         private System.Windows.Forms.ComboBox SubfoldersNamingConvention;
         private System.Windows.Forms.Label labelNamingConventions;
+        private System.Windows.Forms.CheckBox checkBoxOverwrite;
     }
 }
 
